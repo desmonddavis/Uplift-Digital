@@ -310,12 +310,13 @@
 
     /* ── Skills ticker ── */
     @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .ticker-wrap { overflow: hidden; width: 100%; }
+    .ticker-wrap { overflow: hidden; width: 100%; max-width: 100%; }
     .ticker-inner {
-      display: inline-flex;
+      display: flex;
       gap: 2.5rem;
       animation: ticker 24s linear infinite;
       white-space: nowrap;
+      will-change: transform;
     }
     .ticker-item {
       font-family: 'Roboto Mono', monospace;
@@ -608,7 +609,7 @@
       .grid-process    { grid-template-columns: 1fr; }
       .grid-footer     { grid-template-columns: 1fr; gap: 28px; }
       .grid-name-email { grid-template-columns: 1fr; }
-      .grid-stats      { grid-template-columns: repeat(2,1fr); }
+      .grid-stats      { grid-template-columns: repeat(2,1fr); width: calc(100vw - 4rem); max-width: calc(100vw - 4rem); margin: 0 auto; }
       section { padding: 4rem 0 !important; }
       .nav-inner { padding: 0 1.25rem; }
     }
