@@ -533,7 +533,7 @@
     section { overflow: hidden; }
 
     /* ── Responsive grid classes ── */
-    .grid-stats    { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; max-width:480px; margin-left:auto; margin-right:auto; }
+    .grid-stats    { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; max-width:480px; width:100%; margin-left:auto; margin-right:auto; }
     .grid-services { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
     .grid-process  { display:grid; grid-template-columns:repeat(4,1fr); gap:0; }
     .grid-about    { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
@@ -609,7 +609,9 @@
       .grid-process    { grid-template-columns: 1fr; }
       .grid-footer     { grid-template-columns: 1fr; gap: 28px; }
       .grid-name-email { grid-template-columns: 1fr; }
-      .grid-stats      { grid-template-columns: repeat(2,1fr); width: calc(100vw - 4rem); max-width: calc(100vw - 4rem); margin: 0 auto; }
+      .grid-stats      { grid-template-columns: repeat(2,1fr); width: calc(100vw - 3rem); max-width: calc(100vw - 3rem); margin: 0 auto; }
+      .stat-card       { padding: 1.25rem 1rem; }
+      .stat-num        { font-size: 2.75rem !important; }
       section { padding: 4rem 0 !important; }
       .nav-inner { padding: 0 1.25rem; }
     }
@@ -626,6 +628,7 @@
 </head>
 <body>
 
+<div id="page-wrap" style="width:100%; overflow-x:hidden; position:relative;">
 <div id="cursor-glow"></div>
 <div id="scroll-progress"></div>
 <div id="page-transition"></div>
@@ -762,7 +765,7 @@
      STATS BAR
 ══════════════════════════════════════════ -->
 <section style="background:linear-gradient(180deg, rgba(6,12,30,1) 0%, rgba(8,16,38,1) 100%); padding:4rem 0;">
-  <div style="max-width:1280px; margin:0 auto; padding:0 2rem;">
+  <div style="padding:0 1.5rem;">
     <div class="glow-divider" style="margin-bottom:3rem;"></div>
     <div class="grid-stats">
 
@@ -782,6 +785,7 @@
     <div class="glow-divider" style="margin-top:3rem;"></div>
   </div>
 </section>
+
 
 <!-- ══════════════════════════════════════════
      SERVICES
@@ -1429,5 +1433,6 @@
     document.getElementById('email-error').style.display = 'none';
   });
 </script>
+</div><!-- /page-wrap -->
 </body>
 </html>
