@@ -1434,10 +1434,30 @@
 
     const btn = e.target.querySelector('[type=submit]');
     const orig = btn.innerHTML;
-    btn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Message Sent!`;
-    btn.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
+    btn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation:none"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20"/></svg> Sending…`;
     btn.disabled = true;
-    setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.disabled = false; e.target.reset(); }, 3500);
+
+    fetch('https://formspree.io/f/mwvwdlzg', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(e.target)
+    })
+    .then(res => {
+      if (res.ok) {
+        btn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Message Sent!`;
+        btn.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
+        setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.disabled = false; e.target.reset(); }, 3500);
+      } else {
+        btn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg> Something went wrong`;
+        btn.style.background = 'linear-gradient(135deg,#dc2626,#b91c1c)';
+        setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.disabled = false; }, 3500);
+      }
+    })
+    .catch(() => {
+      btn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg> Something went wrong`;
+      btn.style.background = 'linear-gradient(135deg,#dc2626,#b91c1c)';
+      setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.disabled = false; }, 3500);
+    });
   }
 </script>
 </body>
