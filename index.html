@@ -15,6 +15,8 @@
     html {
       scroll-behavior: smooth;
       scroll-padding-top: 88px;
+      overflow-x: hidden;
+      max-width: 100%;
     }
 
     body {
@@ -23,6 +25,8 @@
       color: #fff;
       line-height: 1.7;
       overflow-x: hidden;
+      max-width: 100%;
+      position: relative;
     }
 
     /* ── Cursor glow ── */
@@ -523,6 +527,10 @@
       50%       { opacity: 0.85; background-size: 37.5px 37.5px; }
     }
 
+    /* ── Prevent horizontal overflow on all sections ── */
+    section, footer, nav { max-width: 100%; }
+    section { overflow-x: clip; }
+
     /* ── Responsive grid classes ── */
     .grid-stats    { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; max-width:520px; margin:0 auto; }
     .grid-services { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
@@ -598,6 +606,9 @@
       .grid-stats      { grid-template-columns: repeat(2,1fr); }
       section { padding: 4rem 0 !important; }
       .nav-inner { padding: 0 1.25rem; }
+      /* Tighten reveal offsets on mobile to reduce overflow risk */
+      .reveal-left  { transform: translateX(-16px); }
+      .reveal-right { transform: translateX(16px); }
     }
 
     /* ── Grain texture ── */
