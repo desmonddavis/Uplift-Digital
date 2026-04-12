@@ -1,0 +1,7 @@
+node_modules/
+.claude/
+temporary screenshots/
+*.mjs
+package.json
+package-lock.json
+CLAUDE.md
