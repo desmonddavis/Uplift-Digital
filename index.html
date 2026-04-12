@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Uplift Digital — Web Design Agency</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -494,7 +494,7 @@
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      overflow: hidden;
+      overflow: hidden;        /* clips orbs that bleed past viewport */
     }
     .amb-orb {
       position: absolute;
@@ -527,9 +527,9 @@
       50%       { opacity: 0.85; background-size: 37.5px 37.5px; }
     }
 
-    /* ── Prevent horizontal overflow on all sections ── */
+    /* ── Prevent horizontal overflow ── */
     section, footer, nav { max-width: 100%; }
-    section { overflow-x: clip; }
+    section { overflow: hidden; }
 
     /* ── Responsive grid classes ── */
     .grid-stats    { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; max-width:520px; margin:0 auto; }
@@ -597,6 +597,11 @@
       .process-track { display: none; }
       .nav-desktop-links { display: none !important; }
       .nav-hamburger { display: flex; }
+      /* Kill elements that bleed outside the viewport on mobile */
+      #ambient-layer, #dot-grid, #cursor-glow { display: none !important; }
+      /* Disable reveal translate so nothing starts off-screen */
+      .reveal-left, .reveal-right { transform: none !important; }
+      .reveal-left.in, .reveal-right.in { transform: none !important; }
     }
     @media (max-width: 600px) {
       .grid-services   { grid-template-columns: 1fr; }
@@ -606,9 +611,6 @@
       .grid-stats      { grid-template-columns: repeat(2,1fr); }
       section { padding: 4rem 0 !important; }
       .nav-inner { padding: 0 1.25rem; }
-      /* Tighten reveal offsets on mobile to reduce overflow risk */
-      .reveal-left  { transform: translateX(-16px); }
-      .reveal-right { transform: translateX(16px); }
     }
 
     /* ── Grain texture ── */
