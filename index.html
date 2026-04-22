@@ -1092,8 +1092,10 @@
 
       <!-- Right: form -->
       <div class="reveal-right shimmer-card" style="background:linear-gradient(135deg,rgba(14,24,58,0.95) 0%,rgba(6,12,30,0.98) 100%); border:1px solid rgba(63,143,255,0.14); border-radius:20px; padding:2.25rem; box-shadow:0 8px 48px rgba(12,34,212,0.15), 0 0 0 1px rgba(63,143,255,0.06);">
-        <form id="contact-form" action="https://formspree.io/f/mwvwdlzg" method="POST" onsubmit="return validateForm(event)" style="display:flex; flex-direction:column; gap:1.1rem;">
-          <input type="hidden" name="_next" value="https://upliftdigital.ca" />
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" onsubmit="return validateForm(event)" style="display:flex; flex-direction:column; gap:1.1rem;">
+          <input type="hidden" name="access_key" value="c42638da-b037-42c9-bf17-72ff4f598efa" />
+          <input type="hidden" name="redirect" value="https://upliftdigital.ca" />
+          <input type="hidden" name="subject" value="New Project Inquiry — Uplift Digital" />
 
           <div>
             <label style="display:block; margin-bottom:6px; font-family:'Roboto Mono',monospace; font-size:0.65rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.4);">Project Type</label>
