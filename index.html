@@ -255,6 +255,27 @@
     .d5 { transition-delay: 0.44s; }
     .d6 { transition-delay: 0.53s; }
 
+    /* ── Cloud theming ── */
+    @keyframes cloud-drift-1 {
+      0%, 100% { transform: translateX(0px) translateY(0px); }
+      33%       { transform: translateX(18px) translateY(-10px); }
+      66%       { transform: translateX(-10px) translateY(8px); }
+    }
+    @keyframes cloud-drift-2 {
+      0%, 100% { transform: translateX(0px) translateY(0px); }
+      40%       { transform: translateX(-22px) translateY(12px); }
+      75%       { transform: translateX(14px) translateY(-8px); }
+    }
+    @keyframes cloud-drift-3 {
+      0%, 100% { transform: translateX(0px) translateY(0px); }
+      50%       { transform: translateX(12px) translateY(-14px); }
+    }
+    .cloud-shape {
+      position: absolute;
+      pointer-events: none;
+      fill: none;
+    }
+
     /* ── Shimmer card hover ── */
     .shimmer-card { position: relative; overflow: hidden; }
     .shimmer-card::after {
@@ -708,6 +729,16 @@
     <div style="position:absolute; inset:0; background-image:linear-gradient(rgba(63,143,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(63,143,255,0.04) 1px, transparent 1px); background-size:52px 52px; mask-image:radial-gradient(ellipse 70% 60% at 50% 40%, black 0%, transparent 100%);"></div>
     <!-- Pulsating stars -->
     <div id="hero-stars" style="position:absolute; inset:0;"></div>
+    <!-- Floating cloud shapes -->
+    <svg class="cloud-shape" style="width:520px;height:220px;top:12%;left:-6%;opacity:0.045;filter:blur(2px);animation:cloud-drift-1 18s ease-in-out infinite;" viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M80,140 Q40,140 40,105 Q40,72 80,72 Q85,48 110,44 Q128,22 160,30 Q182,10 215,18 Q248,8 272,26 Q305,14 325,38 Q365,34 375,68 Q415,68 415,103 Q415,138 375,138 Q340,138 320,138 Q200,148 140,138 Z" fill="rgba(63,143,255,1)"/>
+    </svg>
+    <svg class="cloud-shape" style="width:340px;height:150px;top:58%;right:-4%;opacity:0.035;filter:blur(3px);animation:cloud-drift-2 24s ease-in-out infinite;" viewBox="0 0 340 130" xmlns="http://www.w3.org/2000/svg">
+      <path d="M55,95 Q28,95 28,72 Q28,50 55,50 Q59,34 78,30 Q92,14 114,20 Q132,8 156,14 Q178,6 195,18 Q220,12 232,28 Q258,26 264,48 Q288,50 288,72 Q288,95 260,95 Z" fill="rgba(127,184,255,1)"/>
+    </svg>
+    <svg class="cloud-shape" style="width:240px;height:110px;bottom:18%;left:22%;opacity:0.03;filter:blur(2px);animation:cloud-drift-3 20s ease-in-out infinite;" viewBox="0 0 240 100" xmlns="http://www.w3.org/2000/svg">
+      <path d="M40,70 Q20,70 20,52 Q20,35 40,35 Q43,22 58,18 Q70,8 88,14 Q102,4 120,10 Q138,4 150,14 Q168,10 172,28 Q192,30 192,50 Q192,70 168,70 Z" fill="rgba(63,143,255,1)"/>
+    </svg>
   </div>
 
   <div style="position:relative; z-index:2; max-width:1100px; margin:0 auto; padding:0 2rem; text-align:center; width:100%;">
@@ -791,7 +822,10 @@
 <!-- ══════════════════════════════════════════
      SERVICES
 ══════════════════════════════════════════ -->
-<section id="services" style="background:linear-gradient(180deg, rgba(8,16,38,1) 0%, rgba(6,12,30,1) 100%); padding:7rem 0;">
+<section id="services" style="position:relative; overflow:hidden; background:linear-gradient(180deg, rgba(8,16,38,1) 0%, rgba(6,12,30,1) 100%); padding:7rem 0;">
+  <svg class="cloud-shape" style="width:460px;height:190px;top:-30px;right:-60px;opacity:0.04;filter:blur(4px);animation:cloud-drift-2 22s ease-in-out infinite;" viewBox="0 0 460 180" xmlns="http://www.w3.org/2000/svg">
+    <path d="M70,125 Q35,125 35,95 Q35,65 70,65 Q74,42 98,36 Q118,16 148,24 Q172,8 205,16 Q238,6 262,22 Q295,12 318,34 Q355,30 365,60 Q400,62 400,94 Q400,126 362,126 Z" fill="rgba(63,143,255,1)"/>
+  </svg>
   <div style="max-width:1280px; margin:0 auto; padding:0 2rem;">
 
     <div style="text-align:center; max-width:640px; margin:0 auto 4rem;">
@@ -916,7 +950,10 @@
 <!-- ══════════════════════════════════════════
      ABOUT
 ══════════════════════════════════════════ -->
-<section id="about" style="background:linear-gradient(180deg, rgba(8,16,38,1) 0%, rgba(6,12,30,1) 100%); padding:7rem 0;">
+<section id="about" style="position:relative; overflow:hidden; background:linear-gradient(180deg, rgba(8,16,38,1) 0%, rgba(6,12,30,1) 100%); padding:7rem 0;">
+  <svg class="cloud-shape" style="width:380px;height:160px;bottom:-20px;left:-50px;opacity:0.04;filter:blur(3px);animation:cloud-drift-1 26s ease-in-out infinite;" viewBox="0 0 380 150" xmlns="http://www.w3.org/2000/svg">
+    <path d="M60,108 Q30,108 30,82 Q30,57 60,57 Q64,38 85,32 Q102,14 130,22 Q152,6 182,14 Q212,4 234,20 Q264,12 280,36 Q312,34 320,62 Q348,64 348,88 Q348,112 316,112 Z" fill="rgba(127,184,255,1)"/>
+  </svg>
   <div style="max-width:1280px; margin:0 auto; padding:0 2rem;">
 
     <div style="text-align:center; max-width:560px; margin:0 auto 4rem;">
